@@ -49,7 +49,7 @@ const RegistrationForm = () => {
     } else {
       const { confirmPassword, ...userData } = formData;
       try {
-        const res = await axios.post("http://localhost:5000/api/register", userData);
+        const res = await axios.post("https://todoapp-xf5i.onrender.com/api/register", userData);
         if (res.status === 201) {
           setShowModal(true);
           setFormData({
