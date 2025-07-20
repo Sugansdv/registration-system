@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from models import insert_user
-import mysql.connector
+import psycopg2
 
 user_bp = Blueprint('user_bp', __name__)
 
@@ -17,7 +17,7 @@ def register_user():
     try:
         insert_user(full_name, email, password)
         return jsonify({"message": "User registered successfully"}), 201
-    except mysql.connector.IntegrityError:
+    except psycopg2.IntegrityError:
         return jsonify({"error": "Email already exists"}), 409
     except Exception as e:
         return jsonify({"error": str(e)}), 500
