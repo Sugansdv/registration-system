@@ -1,8 +1,9 @@
 services:
   - type: web
-    name: flask-backend
+    name: todoapp-backend
     env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
