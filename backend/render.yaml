@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: registration-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free
+    envVars:
+      - key: DB_HOST
+        value: dpg-d1u6o57diees73aechig-a
+      - key: DB_NAME
+        value: registration_db_obtm
+      - key: DB_USER
+        value: registration_user
+      - key: DB_PASSWORD
+        value: LW1azxEwAU7GqaslpY7vbG9FVm3p7vp0
+      - key: DB_PORT
+        value: 5432
